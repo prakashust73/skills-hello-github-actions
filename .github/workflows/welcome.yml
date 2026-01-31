@@ -9,6 +9,8 @@ jobs:
     name: Post welcome comment
     runs-on: ubuntu-latest
     steps:
+      - name: Install GitHub CLI
+        run: sudo apt-get install -y gh
       - run: gh pr comment "$PR_URL" --body "Welcome to the repository!"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
